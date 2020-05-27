@@ -38,7 +38,8 @@ self.addEventListener('install', event => {
 });
 
 self.addEventListener('fetch', event => {
-  event.respondWith(
+    if (!(event.request.url.indexOf('http') === 0)) return; 
+    event.respondWith(
     fetchFromNetwork(event.request).catch(() => fetchFromCache(event.request))
   );
 });

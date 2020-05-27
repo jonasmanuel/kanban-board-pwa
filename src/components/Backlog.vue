@@ -1,15 +1,22 @@
 <template>
-  <div class="backlog-view">
+  <div class='backlog-view'>
     <new-item></new-item>
 
-    <div class="card" v-for="item in items" :key="item.id">
-        <div class="card-block">
-          <h5 class="card-title"><span class="text-muted">#{{item.id}}</span>
-            {{item.text}}
-            <button type="button" class="close-button pull-right" @click="removeItem(item)"><span>&times;</span></button>
-            <span :class="badgeClass(item)">{{badgeText(item)}}</span>
-          </h5>
-        </div>
+    <div class='card' v-for='item in items' :key='item.id'>
+      <div class='card-block' :style='style(item)'>
+        <h5 class='card-title' >
+          <span class='text-muted'>#{{item.id}}</span>
+          {{item.text}}
+          <button
+            type='button'
+            class='close-button pull-right'
+            @click='removeItem(item)'
+          >
+            <span>&times;</span>
+          </button>
+          <span :class='badgeClass(item)'>{{badgeText(item)}}</span>
+        </h5>
+      </div>
     </div>
   </div>
 </template>
@@ -52,6 +59,9 @@ export default {
       }
 
       return 'done';
+    },
+    style(item) {
+      return item.color ? `background: ${item.color}` : '';
     },
 
     removeItem(item) {

@@ -6,7 +6,6 @@
       <install-prompt></install-prompt>
       
       <h1>Kanban Board</h1>
-      <p class="lead">An example of a Kanban board, written in VueJS</p>
     </div>
     
     <menu-bar></menu-bar>
@@ -29,6 +28,12 @@ export default {
 </script>
 
 <style>
+
+#app {
+ height: calc(100vh - 1rem);
+ display: flex;
+ flex-flow: column;
+}
 .page-header h1 {
   font-weight: 300;
 }
@@ -66,7 +71,31 @@ h5 {
   opacity: 0.3;
 }
 
-.close-button:hover {
+.archive-button {
+  background: transparent;
+  border: 0;
+  margin: 0 0 0 20px;
+  padding: 0;
+  color: white;
+}
+
+.close-button:hover, .archive-button:hover {
   cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+.item-holder::-webkit-scrollbar {
+  display: none;
+}
+.v-select {
+  background: #5b6977;
+}
+
+
+.ghost-card .card {
+  opacity: 0.7;
+  border: 1px solid #4299e1;
 }
 </style>

@@ -12,8 +12,8 @@ if ('serviceWorker' in navigator) {
   runtime.register();
 }
 
-/* eslint-disable no-new */
-new Vue({
+/* eslint-disable */
+const app = new Vue({
   el: '#app',
   router,
   store,
